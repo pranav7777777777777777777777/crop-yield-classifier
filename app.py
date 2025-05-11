@@ -74,6 +74,11 @@ if st.button("Train Model"):
 
     st.success("✅ Model Trained Successfully")
     st.subheader("📈 Model Performance")
+    st.write("### Debug Info")
+    st.write("Target class distribution:")
+    st.write(y.value_counts())
+    st.write("Predicted class distribution:")
+    st.write(pd.Series(y_pred).value_counts())
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Accuracy", f"{accuracy_score(y_test, y_pred):.2f}")
     col2.metric("Precision", f"{precision_score(y_test, y_pred, average='weighted', zero_division=0):.2f}")
